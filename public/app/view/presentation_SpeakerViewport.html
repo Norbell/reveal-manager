@@ -1,0 +1,28 @@
+<!-- This template allows the author to switch between multiple segments.
+For example:
+    - Current Slide
+    - Next Slide
+    - Next Step (Fragment?)
+    - Notes of the current Slide
+    - Control elements
+ -->
+<link rel="stylesheet" href="/app/lib/reveal/css/reveal.min.css">
+<link rel="stylesheet" href="/app/lib/reveal/css/theme/default_div.css" id="theme">
+
+<div class="speakerViewport">
+    <!-- Shows the current slide -->
+    <div id="current_slide_viewport">
+        <div class="reveal" ng-controller='RevealSpeakerViewportCtrl'>
+            <div class="slides">
+                <section ng-repeat="slide in slides " ng-bind-html="slide.text"  on-finish-render>{{slide.text}}</section>
+            </div>
+        </div>
+    </div>
+    <div id="speakerViewport_sidebar">
+        <iframe class="previewViewport" id="previewIframe"></iframe>
+        <!-- Shows the notes of the current slide -->
+        <div class="speakerNotesViewPort">
+            <p>Hallo schöne Welt!</p>
+        </div>
+    </div>
+</div>

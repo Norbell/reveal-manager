@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="/app/lib/reveal/css/reveal.min.css">
+<link rel="stylesheet" href="/app/lib/reveal/css/theme/default.css" id="theme">
+
+<div ng-controller="RevealAudienceViewportCtrl" class="RevealAudienceViewpor">
+    <div class="reveal">
+        <div class="slides">
+            <section ng-repeat="slide in slides " ng-bind-html="slide.text" on-finish-render>{{slide.text}}</section>
+        </div>
+    </div>
+</div>

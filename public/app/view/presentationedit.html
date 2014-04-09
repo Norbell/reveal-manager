@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/app/lib/reveal/reveal.min.css">
+<link rel="stylesheet" href="/app/lib/reveal/css/theme/default_div.css" id="theme">
+
+<div class="presentationedit_container">
+    <div class="presentationedit">
+        <div class="cssinputbox ">
+            <h3><small>CSS</small></h3>
+            <textarea name="css" ng-model="presentationedit.css"></textarea>
+        </div>
+        <div class="htmlinputbox">
+            <h3><small>HTML</small></h3>
+            <textarea name="html" ng-model="presentationedit.html" ></textarea>
+        </div>
+    </div>
+
+    <div class="preview">
+        <div class="reveal">
+            <div class="slides" ng-bind-html="slides">
+                {{slides}}
+            </div>
+        </div>
+    </div>
+    <div class="presentationedit_button">
+        <div class="alert alert-success animate-show" ng-show="savealert">Gespeichert!!</div>
+        <div class="alert alert-warning" ng-show="savealerterror">Error</div>
+        <button type="button" class="btn btn-success" ng-click="saveButton()">Speichern</button>
+    </div>
+</div>

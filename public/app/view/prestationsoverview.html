@@ -1,0 +1,125 @@
+<div class="content white_background" id="presentationoverview">
+    <button class="btn btn-primary" ng-click="showPresentationAddDialog()">Präsentation hinzufügen</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Erstellt am</th>
+                <th>Modifiziert am</th>
+                <th>Aktionen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="presentation in presentations ">
+                <td>{{presentation.id}}</td>
+                <td>{{presentation.name}}</td>
+                <td>{{presentation.createdAt | date: 'd.M.yyyy H:mm'}}</td>
+                <td>{{presentation.updatedAt| date: 'd.M.yyyy H:mm'}}</td>
+                <td class="last_row">
+                    <a class="btn btn-default" ng-click="openSetting(presentation)"><span>Einstellungen bearbeiten</span><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-warning" ng-href="#/presentationedit/{{presentation.id}}"><span>Folien bearbeiten</span><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-primary" ng-click="dialogStartPresentation(presentation)"><span>Zur Präsentation</span><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-danger" ng-click="removePresentation(presentation)"><span>Löschen</span><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Create a new presentation -->
+    <div class="modal">
+        <script type="text/ng-template" id="DialogPresentationCreate.html">
+            <div class="modal-header">
+                <h3>Präsentation erstellen</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group required">
+                    <label class="col-lg-4 control-label" for="Name">Name</label>
+                    <div class="col-lg-8">
+                        <input id="Name" class="form-control" type="text" required="required" maxlength="45"  name="name" ng-model="newpresentation.name">
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-lg-4 control-label" for="Name">Übergang</label>
+                    <div class="col-lg-8">
+                        <select class="form-control" name="transition" ng-model="newpresentation.transition">
+                            <option value="none">Keine</option>
+                            <option value="default" selected>Standard</option>
+                            <option value="cube">Würfel</option>
+                            <option value="page">Seitenweise</option>
+                            <option value="concave">Concave</option>
+                            <option value="zoom">Zoom</option>
+                            <option value="linear">Linear</option>
+                            <option value="fade">Fade</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-lg-4 control-label" for="Name">Übergangsgeschw.</label>
+                    <div class="col-lg-8">
+                        <select class="form-control" name="transitionSpeed" ng-model="newpresentation.transitionSpeed">
+                            <option value="default" selected>Standard</option>
+                            <option value="fast">Schnell</option>
+                            <option value="slow">Langsam</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-lg-4 control-label" for="Name">Hintergrundübergang</label>
+                    <div class="col-lg-8">
+                        <select class="form-control" name="backgroundTransition" ng-model="newpresentation.backgroundTransition">
+                            <option value="none">Keine</option>
+                            <option value="default" selected>Standard</option>
+                            <option value="concave">Concave</option>
+                            <option value="convex">Convex</option>
+                            <option value="zoom">Zoom</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="newPresentationOk()">OK</button>
+                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            </div>
+        </script>
+    </div>
+
+    <!-- Start a presentation -->
+    <div class="modal" >
+        <script type="text/ng-template" id="DialogStartPresentation.html">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+                <h3>Starte: #{{praesentationID}} - {{presentationName}}</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group required">
+                   <div class="col-lg-10">
+                     <h4>Live Präsentation</h4>
+                       <p>Teilen Sie diesen Link mit Ihren Zuhörern, damit diese Ihre Präsentation in Echtzeit auf Ihren Geräten mitverfolgen können.</p>
+                       <div class="input-group">
+                           <span class="input-group-addon glyphicon glyphicon-link"></span>
+                           <input type="text" class="form-control" name="presentationURL" readonly value={{presentationURL}}>
+                       </div>
+                    </div>
+
+                    <hr class="col-lg-11">
+
+                    <div class="col-lg-10">
+                        <h4>Präsentationsbildschirm</h4>
+                        <p>Möchten Sie direkt ein separates Fenster für die Darstellung auf einem zweiten Bildschirm öffnet?</p>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"  ng-model="starPresenterView">Präsentation in neuem Fenster öffnen
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn data-dismiss" ng-click="cancel()">Abbrechen</button>
+                <button class="btn btn-success" ng-click="startPresentation(starPresenterView)">Präsentation starten</button>
+            </div>
+        </script>
+    </div>
+</div>

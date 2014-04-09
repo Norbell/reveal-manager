@@ -1,0 +1,23 @@
+.signin_container{
+    width: 350px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    position: relative;
+    /*vertical-align: middle;*/
+    display: block;
+    background-color: #ffffff;
+}
+
+.form-signin{
+    margin: 0 auto;
+}
+
+.oAuthloginButton {
+    margin-top: 15px;
+    float: left;
+}
+.oAuthloginButton img {
+   width: 100%;
+}
+

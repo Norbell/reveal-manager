@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+@media (min-width: 768px){
+
+}
+
+body{
+    background-color: #EEEEEE;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+
+.notloggedin {
+    display: none;
+}
+
+/*.container { height: 100%; }
+.container > div { float: left; }*/
+
+.display_none { display: none; }
+
+.container {
+    position: relative;
+    top: 50px;
+    bottom: 0px;
+    //width:100%;
+}
+.content.white_background {
+    background-color: white;
+    padding: 20px;
+}
+.presentation .container{
+    width: 100%;
+    height: 100%;
+}
+
+body.presentation .container {
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+body.presentation .container > div {
+    width:100%;
+    height:100%
+}
+body.presentation nav.navbar-collapse.presentation  {
+    display: none !important;
+}
+
+body.presentation .container{
+    margin:0;
+    padding: 0;
+}
+
+.reveal.preview, body.slidesoverview{
+    background-color: white;
+    background-image: none;
+}
+
+/*.reveal.preview{
+    position: absolute;
+    bottom: 0;
+    height: 25%;
+    background-color: #6E757B;
+    width: 100%;
+}
+
+.preview > div{
+   -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    -ms-transform: scale(0.2);
+    -o-transform: scale(0.4);
+    transform: scale(0.4);
+    float: left;
+    margin: 20px;
+    display: inline;
+    border: 3px solid black;
+    
+    overflow: hidden;
+    position: relative;
+    background-color: #2B2B22;
+    padding: 10px;
+}
+
+
+.preview > div > div *{
+    text-align: center;  
+    text-shadow:none;
+}*/
+
+/*.reveal .progress {
+    bottom: 25%;
+}*/
+
+.reveal.preview section {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+    border: 1px solid black;
+    float: left;
+}
+
+
+/*Container for the presentation viewport*/
+#presentation_viewer{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*Part which displays the current slide*/
+.reveal_viewport{
+    height: 80%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/*Settings for the overview of the already presented slides*/
+.slides_overview{
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+    display: block;
+    position: absolute;
+    background-color: #ffff00;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.slides_overview > div{
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    -ms-transform: scale(0.2);
+    -o-transform: scale(0.4);
+    transform: scale(0.12);
+    float: left;
+    margin: 20px;
+    text-align: center;
+    display: inline;
+    border: 3px solid black;
+    position: relative;
+    background-color: #2B2B22;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.section-container{
+    display:inline-block;
+    transform: scale(0.3);
+    border: solid black 3px;
+}
+
+
+
+/* overview */
+#presentationoverview .last_row .glyphicon{
+    display: none;
+}
+
+.presentationedit_body .container {   
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width : 1230px) {
+    #presentationoverview .last_row .glyphicon{
+        display: block;
+    }
+    #presentationoverview .last_row span:first-of-type{
+        display: none;
+    }
+}
+
+.presentationedit, .preview{
+    bottom: 0;      
+    height: 100%;
+    position: absolute;
+}
+.presentationedit { left: 25px; width: 40%; height: 100%; }
+.preview { right: 3%; width: 40%; bottom: 30%; height: 50%; }
+
+.presentationedit div > textarea {
+    height: 90%;
+    width: 100%;
+}
+
+
+.presentationedit div.cssinputbox { height: 25%; }
+.presentationedit div.htmlinputbox { height: 65%; }
+
+.presentationedit_button {
+    bottom: 8%;
+    position: absolute;
+    right: 3%;
+}
+
+
+/* modal dialog */
+.modal-body{
+    float: left;
+    width: 100%;
+}
+.modal-content {
+    float: left;
+}
+.modal-footer{
+    float: left;
+    text-align: right;
+    width: 100%;
+}
+.form-group{
+    width: 100%;
+    float:left;
+}
+
+#last_row{
+    text-align: right;
+}
+
+.row_title_center{
+    text-align: center;
+}
+
+
+/* Speaker-Viewport */
+.speakerViewport {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+#current_slide_viewport{
+    height: 100%;
+    width: 70%;
+    float: left;
+    padding: 5px;
+}
+
+#speakerViewport_sidebar{
+    height: 100%;
+    width: 30%;
+    padding: 5px;
+    float: right;
+}
+
+.previewViewport {
+    height: 40%;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 5px;
+    float: left;
+}
+
+.speakerNotesViewPort {
+    height: 60%;
+    width: 100%;
+    background-color: #8B0000;
+    float: left;
+}
+
+aside.controls{
+    position: absolute !important;
+}
+
+#presentation_screen, .RevealAudienceViewpor{
+    height: 100%;
+    width: 100%;
+}

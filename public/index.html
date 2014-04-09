@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="MyPresi">
+    <head>
+        <title ng-cloak>{{title}} - MyPresi</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    
+        <script src="/app/lib/angular/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-sanitize.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+        <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script> 
+        
+        <script src="/app/lib/reveal/lib/js/head.min.js"></script>
+        <script src="/app/lib/reveal/reveal.min.js"></script>
+        <script src="/app/js/socketioService.js"></script>
+        <script src="/app/js/revealModule.js"></script>
+        <script src="/app/js/applications.js"></script>  
+        <link type="text/css" rel="stylesheet" href="/app/lib/bootstrap/css/bootstrap.min.css" />
+    </head>
+    <body ng-class="bodyClass" resizable >
+
+        <!-- Navi -->
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-collapse collapse" role="navigation" ng-class="bodyClass">
+            <a class="navbar-brand" href="#">Präsentations Verwaltung</a>
+
+            <div ng-class="navButtons">
+                <ul class="nav navbar-nav">
+                    <li><a ng-href="#/">Eigene Präsentationen</a></li>      
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/logout">Abmelden</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container" id="container">
+            <div ng-view>Inhalt</div>
+        </div>
+
+      
+        <link type="text/css" rel="stylesheet" href="/app/css/style.css" />
+    </body>
+</html>
